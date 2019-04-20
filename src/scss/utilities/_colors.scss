@@ -1,0 +1,45 @@
+$primary: #10bde3;
+$primary-light: scale-color($primary, $lightness: 20%);
+$primary-dark: scale-color($primary, $lightness: -40%);
+
+$secondary: #dc143c;
+
+$black: #000;
+$off-black: #222;
+$gray: #666;
+$white: #fff;
+
+// Sidebar
+
+$sidebar-background-color: $black;
+
+// Body
+
+$body-background-color: scale-color($sidebar-background-color, $lightness: 5%);
+$body-color: #ccc;
+
+// Button
+
+$button-background-color: transparent;
+$button-border-color: $button-background-color;
+$button-color: $body-color;
+
+$button-background-color--hover: scale-color($body-background-color, $lightness: 5%);
+$button-border-color--hover: $button-background-color--hover;
+$button-color--hover: $white;
+
+// Heading
+
+$heading-color: #999;
+
+// Icon
+
+$icon-color: #666;
+
+// Input
+
+$input-background-color: $white;
+$input-color: $black;
+
+$input-background-color--hover: $input-background-color;
+$input-color--hover: $input-color;

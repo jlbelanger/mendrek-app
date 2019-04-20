@@ -1,0 +1,21 @@
+#skip {
+  background-color: $primary;
+  color: $black;
+  font-size: 18px;
+  font-weight: 500;
+  left: 0;
+  line-height: 1;
+  opacity: 0;
+  padding: 8px;
+  position: absolute;
+  text-decoration: none;
+  top: -34px;
+  z-index: 9999;
+
+  &:active,
+  &:focus {
+    opacity: 1;
+    outline: none;
+    top: 0;
+  }
+}

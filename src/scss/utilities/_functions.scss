@@ -1,0 +1,3 @@
+@function svg-color($color) {
+  @return 'rgba(#{floor(red($color))},#{floor(green($color))},#{floor(blue($color))},#{floor(alpha($color))})';
+}

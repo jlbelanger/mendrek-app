@@ -1,0 +1,20 @@
+h1 {
+  color: $white;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+h2,
+th {
+  color: $heading-color;
+  font-size: $body-font-size;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-weight: normal;
+  padding: 16px 16px 0;
+}
