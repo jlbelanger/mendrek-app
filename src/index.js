@@ -7,9 +7,11 @@ import './scss/style.scss';
 
 dotenv.config();
 
-const token = new URLSearchParams(window.location.search).get('token');
+const params = new URLSearchParams(window.location.search);
+const token = params.get('token');
 if (token) {
   Cache.set('token', token);
+  Cache.set('expires', params.get('expires'));
   window.location.replace(window.location.origin);
 } else {
   ReactDOM.render(Element(), document.getElementById('root'));

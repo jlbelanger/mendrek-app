@@ -11,15 +11,13 @@ export default class Playlists extends React.Component {
    * @description Fetches data.
    */
   componentDidMount() {
-    this.props.request(
-      '/me/playlists',
-      (response) => {
-        this.setState({ rows: response.data });
-      },
-      () => {
+    this.props.request('/me/playlists')
+      .then((data) => {
+        this.setState({ rows: data });
+      })
+      .catch(() => {
         this.setState({ rows: null });
-      },
-    );
+      });
   }
 
   /**

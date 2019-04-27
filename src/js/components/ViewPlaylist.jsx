@@ -63,15 +63,13 @@ export default class ViewPlaylist extends React.Component {
    * @description Fetches data.
    */
   fetch() {
-    this.props.request(
-      `/playlists/${this.props.id}`,
-      (response) => {
-        this.setState({ row: response.data });
-      },
-      () => {
+    this.props.request(`/playlists/${this.props.id}`)
+      .then((data) => {
+        this.setState({ row: data });
+      })
+      .catch(() => {
         this.setState({ row: null });
-      },
-    );
+      });
   }
 
   /**

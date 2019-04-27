@@ -27,36 +27,27 @@ export default class App extends React.Component {
    * @description Fetches data.
    */
   componentDidMount() {
-    this.request(
-      '/me',
-      (response) => {
-        this.setState({ user: response.data });
-      },
-      () => {
+    this.request('/me')
+      .then((data) => {
+        this.setState({ user: data });
+      })
+      .catch(() => {
         this.logout();
-      },
-    );
+      });
   }
 
   /**
    * @description Makes a request to the API.
    * @param {string} endpoint
-   * @param {function} successCallback
-   * @param {function} errorCallback
+   * @returns {Promise}
    */
-  request = (endpoint, successCallback, errorCallback) => {
+  request = (endpoint) => {
     this.setState(prevState => ({ loading: prevState.loading + 1 }));
-    this.state.api.request(
-      endpoint,
-      (response) => {
+    return this.state.api.request(endpoint)
+      .then((data) => {
         this.setState(prevState => ({ loading: prevState.loading - 1 }));
-        if (response.success) {
-          successCallback(response);
-        } else {
-          errorCallback(response);
-        }
-      },
-    );
+        return data;
+      });
   }
 
   /**
@@ -71,8 +62,13 @@ export default class App extends React.Component {
    * @description Logs out the current user.
    */
   logout = () => {
-    Cache.clear();
-    this.setState(this.getInitialState());
+    this.request('/authenticate/logout')
+      .catch(() => null)
+      .then(() => {
+        Cache.clear();
+        clearInterval(this.state.api.refreshInterval);
+        this.setState(this.getInitialState());
+      });
   }
 
   /**
