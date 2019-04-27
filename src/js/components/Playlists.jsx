@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Search from './Search';
 
 export default class Playlists extends React.Component {
@@ -50,10 +51,13 @@ export default class Playlists extends React.Component {
 
     if (list.length > 0) {
       list = list.map((playlist) => {
-        const buttonClass = this.props.view.type === 'playlist' && this.props.view.id === playlist.id ? 'button--active' : '';
+        let linkClass = 'playlist';
+        if (window.location.pathname === `/playlists/${playlist.id}`) {
+          linkClass += ' playlist--active';
+        }
         return (
           <li key={playlist.id}>
-            <button className={buttonClass} type="button" onClick={this.props.onClickPlaylist.bind(this, playlist)}>{playlist.name}</button>
+            <Link className={linkClass} to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
           </li>
         );
       });

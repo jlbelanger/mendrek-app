@@ -6,20 +6,11 @@ import Playlists from '../../components/Playlists';
 Enzyme.configure({ adapter: new Adapter() });
 
 let data;
-const mockOnClickPlaylist = () => {};
 const mockRequest = () => (
   Promise.resolve().then(() => data)
 );
-const mockView = {
-  id: null,
-  type: null,
-};
 const component = () => (
-  <Playlists
-    onClickPlaylist={mockOnClickPlaylist}
-    request={mockRequest}
-    view={mockView}
-  />
+  <Playlists request={mockRequest} />
 );
 let c;
 

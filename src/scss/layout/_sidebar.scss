@@ -39,23 +39,28 @@
   list-style: none;
   margin: 0;
   padding: 0;
-
-  button {
-    border-width: 0 0 0 $button-border-width;
-    padding: 16px;
-    text-align: left;
-    width: 100%;
-  }
 }
 
-.button--active {
-  background-color: scale-color($sidebar-background-color, $lightness: 5%);
-  border-color: $primary;
-  color: $white;
+.playlist {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 0 0 $button-border-width;
+  color: $body-color;
+  display: block;
+  line-height: 1;
+  padding: 16px;
+  text-decoration: none;
 
   &:hover,
   &:active,
   &:focus {
-    border-color: $primary;
+    background-color: $button-background-color--hover;
+    color: $button-color--hover;
   }
+}
+
+.playlist--active {
+  background-color: scale-color($sidebar-background-color, $lightness: 5%);
+  border-color: $primary;
+  color: $white;
 }

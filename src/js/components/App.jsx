@@ -1,6 +1,8 @@
 import React from 'react';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import API from '../helpers/API';
 import Cache from '../helpers/Cache';
+import Loading from './Loading';
 import Playlists from './Playlists';
 import Splash from './Splash';
 import ViewPlaylist from './ViewPlaylist';
@@ -15,10 +17,6 @@ export default class App extends React.Component {
     return {
       api: new API(),
       loading: 0,
-      view: {
-        id: null,
-        type: null,
-      },
       user: null,
     };
   }
@@ -44,18 +42,9 @@ export default class App extends React.Component {
   request = (endpoint) => {
     this.setState(prevState => ({ loading: prevState.loading + 1 }));
     return this.state.api.request(endpoint)
-      .then((data) => {
+      .finally(() => {
         this.setState(prevState => ({ loading: prevState.loading - 1 }));
-        return data;
       });
-  }
-
-  /**
-   * @description Loads the given playlist.
-   * @param {Object} playlist
-   */
-  onClickPlaylist = (playlist) => {
-    this.setState({ view: { id: playlist.id, type: 'playlist' } });
   }
 
   /**
@@ -97,37 +86,28 @@ export default class App extends React.Component {
       return null;
     }
 
-    let content = null;
-    if (this.state.view.type === 'playlist') {
-      content = (
-        <ViewPlaylist
-          api={this.state.api}
-          id={this.state.view.id}
-          loading={this.state.loading}
-          request={this.request}
-        />
-      );
-    }
-
     return (
-      <div id="container">
-        <main id="main">
-          <a href="#content" id="skip" onClick={this.skip}>Skip to content</a>
-          <aside id="sidebar">
-            <h1 id="title">Mendrek</h1>
-            <ul id="nav">
-              <li>{this.state.user.id}</li>
-              <li><button type="button" onClick={this.logout}>Logout</button></li>
-            </ul>
-            <Playlists
-              request={this.request}
-              onClickPlaylist={this.onClickPlaylist}
-              view={this.state.view}
-            />
-          </aside>
-          {content}
-        </main>
-      </div>
+      <Router>
+        <div id="container">
+          <main id="main">
+            <a href="#content" id="skip" onClick={this.skip}>Skip to content</a>
+            <aside id="sidebar">
+              <h1 id="title">Mendrek</h1>
+              <ul id="nav">
+                <li>{this.state.user.id}</li>
+                <li><button type="button" onClick={this.logout}>Logout</button></li>
+              </ul>
+              <Playlists request={this.request} />
+            </aside>
+            <article id="content">
+              <Switch>
+                <Route path="/playlists/:id" render={props => <ViewPlaylist {...props} api={this.state.api} request={this.request} />} />
+              </Switch>
+              <Loading loading={this.state.loading} />
+            </article>
+          </main>
+        </div>
+      </Router>
     );
   }
 }

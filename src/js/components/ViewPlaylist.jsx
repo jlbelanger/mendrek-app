@@ -1,5 +1,4 @@
 import React from 'react';
-import Loading from './Loading';
 import Search from './Search';
 
 export default class ViewPlaylist extends React.Component {
@@ -22,7 +21,7 @@ export default class ViewPlaylist extends React.Component {
    * @param {Object} prevProps
    */
   componentDidUpdate(prevProps) {
-    if (prevProps.id !== this.props.id) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
       this.fetch();
     }
   }
@@ -55,7 +54,7 @@ export default class ViewPlaylist extends React.Component {
    * @param {string} format
    */
   export(format) {
-    const url = `${this.props.api.url}/playlists/${this.props.id}.${format}?token=${encodeURIComponent(this.props.api.token)}`;
+    const url = `${this.props.api.url}/playlists/${this.props.match.params.id}.${format}?token=${encodeURIComponent(this.props.api.token)}`;
     window.location.href = url;
   }
 
@@ -63,7 +62,7 @@ export default class ViewPlaylist extends React.Component {
    * @description Fetches data.
    */
   fetch() {
-    this.props.request(`/playlists/${this.props.id}`)
+    this.props.request(`/playlists/${this.props.match.params.id}`)
       .then((data) => {
         this.setState({ row: data });
       })
@@ -78,16 +77,12 @@ export default class ViewPlaylist extends React.Component {
   render() {
     if (this.state.row === null) {
       return (
-        <article id="content">
-          <p>Error fetching playlist.</p>
-        </article>
+        <p>Error fetching playlist.</p>
       );
     }
 
     if (!this.state.row.id) {
-      return (
-        <article id="content" />
-      );
+      return null;
     }
 
     let list = this.state.row.tracks.items.filter((item) => {
@@ -135,7 +130,7 @@ export default class ViewPlaylist extends React.Component {
     const tableClass = `table--sort-${this.state.sortDirection}`;
 
     return (
-      <article id="content">
+      <div>
         <div className="header">
           <h1>{this.state.row.name}</h1>
           <div><button className="button--primary" type="button" onClick={this.export.bind(this, 'csv')}>Export CSV</button></div>
@@ -155,8 +150,7 @@ export default class ViewPlaylist extends React.Component {
             {list}
           </tbody>
         </table>
-        <Loading loading={this.props.loading} />
-      </article>
+      </div>
     );
   }
 }
