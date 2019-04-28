@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+a {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $primary-light;
+    text-decoration: underline;
+  }
+}
+
 body {
   background-color: $body-background-color;
   font-family: $body-font-family;

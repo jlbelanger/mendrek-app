@@ -49,13 +49,13 @@
   display: block;
   line-height: 1;
   padding: 16px;
-  text-decoration: none;
 
   &:hover,
   &:active,
   &:focus {
     background-color: $button-background-color--hover;
     color: $button-color--hover;
+    text-decoration: none;
   }
 }
 
