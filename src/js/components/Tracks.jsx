@@ -2,10 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default class Tracks extends React.Component {
-  state = {
-    sortKey: null,
-    sortDirection: 'asc',
-  };
+  state = this.getInitialState()
+
+  /**
+   * @description Returns the initial state.
+   */
+  getInitialState() {
+    return {
+      sortKey: null,
+      sortDirection: 'asc',
+    };
+  }
+
+  /**
+   * @description Reinitializes component.
+   * @param {Object} newProps
+   */
+  componentWillReceiveProps(newProps) {
+    if (newProps.rows !== this.props.rows) {
+      this.setState(this.getInitialState());
+    }
+  }
 
   /**
    * @description Sorts the table by the given column.
