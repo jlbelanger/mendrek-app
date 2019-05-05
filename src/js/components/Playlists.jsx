@@ -45,7 +45,7 @@ export default class Playlists extends React.Component {
       );
     }
 
-    let list = this.state.rows.items.filter(playlist => (
+    let list = this.state.rows.filter(playlist => (
       playlist.name.toLowerCase().indexOf(this.state.filterValue.toLowerCase()) !== -1
     ));
 

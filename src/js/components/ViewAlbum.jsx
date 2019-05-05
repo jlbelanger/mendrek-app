@@ -55,7 +55,7 @@ export default class ViewAlbum extends React.Component {
         <div className="header">
           <h1>{this.state.row.name}</h1>
         </div>
-        <Tracks album={this.state.row} rows={this.state.row.tracks.items} />
+        <Tracks album={this.state.row} rows={this.state.row.tracks} />
       </div>
     );
   }

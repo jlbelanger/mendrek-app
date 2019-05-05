@@ -47,13 +47,11 @@ describe('Playlists', () => {
 
   describe('when there are playlists', () => {
     beforeEach(() => {
-      data = {
-        items: [
-          { id: '1', name: 'Classic Rock' },
-          { id: '2', name: 'Country' },
-          { id: '3', name: 'Hard Rock' },
-        ],
-      };
+      data = [
+        { id: '1', name: 'Classic Rock' },
+        { id: '2', name: 'Country' },
+        { id: '3', name: 'Hard Rock' },
+      ];
       c = shallow(component());
     });
 

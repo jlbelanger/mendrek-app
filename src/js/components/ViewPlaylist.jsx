@@ -69,9 +69,9 @@ export default class ViewPlaylist extends React.Component {
       return null;
     }
 
-    const rows = this.state.row.tracks.items.filter((item) => {
+    const rows = this.state.row.tracks.filter((item) => {
       const filter = this.state.filterValue.toLowerCase();
-      return item.track.name.toLowerCase().indexOf(filter) !== -1;
+      return item.name.toLowerCase().indexOf(filter) !== -1;
     });
 
     return (
