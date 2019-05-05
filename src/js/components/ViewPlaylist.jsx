@@ -82,7 +82,7 @@ export default class ViewPlaylist extends React.Component {
           <div><button className="button--primary" type="button" onClick={this.export.bind(this, 'json')}>Export JSON</button></div>
         </div>
         <Search filter={this.filter} type="tracks" />
-        <Tracks rows={rows} />
+        <Tracks rows={rows} sortKey="" />
       </div>
     );
   }

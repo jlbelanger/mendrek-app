@@ -1,7 +1,7 @@
 import React from 'react';
 import Tracks from './Tracks';
 
-export default class ViewAlbum extends React.Component {
+export default class ViewArtist extends React.Component {
   state = {
     row: {},
   };
@@ -27,7 +27,7 @@ export default class ViewAlbum extends React.Component {
    * @description Fetches data.
    */
   fetch() {
-    this.props.request(`/albums/${this.props.match.params.id}`)
+    this.props.request(`/artists/${this.props.match.params.id}`)
       .then((data) => {
         this.setState({ row: data });
       })
@@ -42,7 +42,7 @@ export default class ViewAlbum extends React.Component {
   render() {
     if (this.state.row === null) {
       return (
-        <p>Error fetching album.</p>
+        <p>Error fetching artist.</p>
       );
     }
 
@@ -55,7 +55,7 @@ export default class ViewAlbum extends React.Component {
         <div className="header">
           <h1>{this.state.row.name}</h1>
         </div>
-        <Tracks album={this.state.row} rows={this.state.row.tracks} sortKey="" />
+        <Tracks rows={this.state.row.tracks} sortKey="date" />
       </div>
     );
   }

@@ -2,14 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default class Tracks extends React.Component {
-  state = this.getInitialState()
+  constructor(props) {
+    super(props);
+    this.state = this.getInitialState(props);
+  }
 
   /**
    * @description Returns the initial state.
+   * @param {Object} props
    */
-  getInitialState() {
+  getInitialState(props) {
     return {
-      sortKey: null,
+      sortKey: props && props.sortKey ? props.sortKey : null,
       sortDirection: 'asc',
     };
   }
@@ -20,7 +24,7 @@ export default class Tracks extends React.Component {
    */
   componentWillReceiveProps(newProps) {
     if (newProps.rows !== this.props.rows) {
-      this.setState(this.getInitialState());
+      this.setState(this.getInitialState(newProps));
     }
   }
 
@@ -57,6 +61,7 @@ export default class Tracks extends React.Component {
           id: track.id,
           name: track.name,
           artist: track.artists.map(artist => artist.name).join(', '),
+          artists: track.artists,
           album: album.name,
           album_id: album.id,
           date: album.release_date,
@@ -77,14 +82,24 @@ export default class Tracks extends React.Component {
         let albumLink;
         if (item.album) {
           albumLink = (
-            <Link className="ellipsis" title={item.album} to={`/albums/${item.album_id}`}>{item.album}</Link>
+            <Link title={item.album} to={`/albums/${item.album_id}`}>{item.album}</Link>
           );
         }
+
+        let artistLinks;
+        if (item.artists) {
+          artistLinks = item.artists.map(artist => (
+            <li key={artist.id}>
+              <Link title={artist.name} to={`/artists/${artist.id}`}>{artist.name}</Link>
+            </li>
+          ));
+        }
+
         return (
           <tr key={item.id}>
-            <td><span className="ellipsis" title={item.name}>{item.name}</span></td>
-            <td><span className="ellipsis" title={item.artist}>{item.artist}</span></td>
-            <td>{albumLink}</td>
+            <td className="ellipsis"><span title={item.name}>{item.name}</span></td>
+            <td className="ellipsis"><ul className="list--inline">{artistLinks}</ul></td>
+            <td className="ellipsis">{albumLink}</td>
             <td>{item.year}</td>
           </tr>
         );

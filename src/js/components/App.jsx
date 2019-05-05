@@ -6,6 +6,7 @@ import Loading from './Loading';
 import Playlists from './Playlists';
 import Splash from './Splash';
 import ViewAlbum from './ViewAlbum';
+import ViewArtist from './ViewArtist';
 import ViewPlaylist from './ViewPlaylist';
 
 export default class App extends React.Component {
@@ -103,6 +104,7 @@ export default class App extends React.Component {
             <article id="content">
               <Switch>
                 <Route path="/albums/:id" render={props => <ViewAlbum {...props} request={this.request} />} />
+                <Route path="/artists/:id" render={props => <ViewArtist {...props} request={this.request} />} />
                 <Route path="/playlists/:id" render={props => <ViewPlaylist {...props} api={this.state.api} request={this.request} />} />
               </Switch>
               <Loading loading={this.state.loading} />
