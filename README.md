@@ -26,7 +26,7 @@ All other commands should be run in the `mendrek-app` folder.
 ### Configure environment settings
 
 ```
-cp .env.sample .env
+cp .env.example .env
 ```
 
 ### Install dependencies
