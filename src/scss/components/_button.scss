@@ -47,16 +47,19 @@ button {
 
   &:focus {
     @include icon-clear($secondary);
+
     box-shadow: none;
   }
 }
 
 .button--search {
   @include icon-search($icon-color);
+
   pointer-events: none;
 
   &:focus {
     @include icon-search($secondary);
+
     box-shadow: none;
   }
 }
@@ -66,6 +69,7 @@ button {
 
   &::after {
     @include icon-arrow-down($white);
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;

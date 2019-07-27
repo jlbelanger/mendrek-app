@@ -11,6 +11,7 @@
 
   &::after {
     @include icon-spinner(#fff);
+
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-name: spin;
