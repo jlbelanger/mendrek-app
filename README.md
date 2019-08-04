@@ -43,6 +43,12 @@ npm start
 
 Your browser should automatically open http://localhost:3000/
 
+## Deploying
+
+```
+npm run build
+```
+
 ## Helpful development stuff
 
 ### Running tests
