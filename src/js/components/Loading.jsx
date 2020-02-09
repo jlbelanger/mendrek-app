@@ -1,23 +1,13 @@
 import React from 'react';
+import { usePromiseTracker } from 'react-promise-tracker';
 
-export default class Loading extends React.Component {
-  /**
-   * @description Returns true if waiting for requests to finish.
-   */
-  isLoading() {
-    return this.props.loading > 0;
+export default () => {
+  const { promiseInProgress } = usePromiseTracker();
+  if (!promiseInProgress) {
+    return null;
   }
 
-  /**
-   * @description Renders the component.
-   */
-  render() {
-    if (!this.isLoading()) {
-      return null;
-    }
-
-    return (
-      <div id="spinner">Loading</div>
-    );
-  }
-}
+  return (
+    <div id="spinner">Loading</div>
+  );
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { trackPromise } from 'react-promise-tracker';
 import API from '../helpers/API';
 import Cache from '../helpers/Cache';
 import Loading from './Loading';
@@ -18,7 +19,6 @@ export default class App extends React.Component {
   getInitialState() {
     return {
       api: new API(),
-      loading: 0,
       user: null,
     };
   }
@@ -42,11 +42,7 @@ export default class App extends React.Component {
    * @returns {Promise}
    */
   request = (endpoint) => {
-    this.setState(prevState => ({ loading: prevState.loading + 1 }));
-    return this.state.api.request(endpoint)
-      .finally(() => {
-        this.setState(prevState => ({ loading: prevState.loading - 1 }));
-      });
+    return trackPromise(this.state.api.request(endpoint));
   }
 
   /**
@@ -107,7 +103,7 @@ export default class App extends React.Component {
                 <Route path="/artists/:id" render={props => <ViewArtist {...props} request={this.request} />} />
                 <Route path="/playlists/:id" render={props => <ViewPlaylist {...props} api={this.state.api} request={this.request} />} />
               </Switch>
-              <Loading loading={this.state.loading} />
+              <Loading />
             </article>
           </main>
         </div>
