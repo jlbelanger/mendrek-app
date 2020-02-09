@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import API from '../helpers/API';
 import Tracks from './Tracks';
@@ -5,6 +6,14 @@ import Tracks from './Tracks';
 export default class ViewArtist extends React.Component {
   state = {
     row: {},
+  }
+
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.string,
+      }),
+    }).isRequired,
   }
 
   /**

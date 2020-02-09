@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 export default class Tracks extends React.Component {
+  static propTypes = {
+    album: PropTypes.object,
+    rows: PropTypes.array.isRequired,
+  }
+
+  static defaultProps = {
+    album: null,
+  }
+
   constructor(props) {
     super(props);
     this.state = this.getInitialState(props);

@@ -11,7 +11,7 @@ export default class Auth {
 
   /**
    * @description Returns the current user's token expiry.
-   * @returns {int}
+   * @returns {number}
    */
   static getExpires() {
     return Cache.get('expires');
@@ -28,7 +28,7 @@ export default class Auth {
   /**
    * @description Sets the current user's token.
    * @param {string} token
-   * @param {int} expires
+   * @param {number} expires
    */
   static setToken(token, expires) {
     Cache.set('token', token);

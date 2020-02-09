@@ -27,6 +27,6 @@
     "jsdoc/require-returns-type": 1,
     "jsdoc/valid-types": 1,
     "react/destructuring-assignment": 0,
-    "react/prop-types": 0
+    "react/forbid-prop-types": 0
   }
 }

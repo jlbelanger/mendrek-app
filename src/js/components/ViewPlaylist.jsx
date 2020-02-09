@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import API from '../helpers/API';
 import Auth from '../helpers/Auth';
@@ -8,6 +9,14 @@ export default class ViewPlaylist extends React.Component {
   state = {
     filterValue: '',
     row: {},
+  }
+
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.string,
+      }),
+    }).isRequired,
   }
 
   /**
