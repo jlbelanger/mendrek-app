@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search';
 import Tracks from './Tracks';
+import API from '../helpers/API';
 
 export default class ViewPlaylist extends React.Component {
   state = {
@@ -39,7 +40,7 @@ export default class ViewPlaylist extends React.Component {
    */
   export = (e) => {
     const format = e.target.getAttribute('data-format');
-    const url = `${this.props.api.url}/playlists/${this.props.match.params.id}.${format}?token=${encodeURIComponent(this.props.api.token)}`;
+    const url = `${API.url()}/playlists/${this.props.match.params.id}.${format}?token=${encodeURIComponent(this.props.api.token)}`;
     window.location.href = url;
   }
 

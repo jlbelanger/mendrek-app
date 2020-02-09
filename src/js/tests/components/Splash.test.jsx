@@ -6,7 +6,7 @@ import Splash from '../../components/Splash';
 Enzyme.configure({ adapter: new Adapter() });
 
 const component = () => (
-  <Splash url="https://example.org" />
+  <Splash />
 );
 
 describe('Splash', () => {
@@ -20,7 +20,7 @@ describe('Splash', () => {
     test('redirects to authentication page', () => {
       window.location.assign = jest.fn();
       shallow(component()).find('button').simulate('click');
-      expect(window.location.assign).toBeCalledWith('https://example.org/authenticate');
+      expect(window.location.assign).toBeCalledWith('http://localhost:5309/authenticate');
     });
   });
 });

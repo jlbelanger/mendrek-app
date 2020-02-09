@@ -80,7 +80,7 @@ export default class App extends React.Component {
   render() {
     if (!this.state.api.token) {
       return (
-        <Splash url={this.state.api.url} />
+        <Splash />
       );
     }
 

@@ -7,7 +7,6 @@ export default class API {
   constructor() {
     this.token = Cache.get('token');
     this.expires = Cache.get('expires');
-    this.url = process.env.REACT_APP_MENDREK_API_URL;
     this.hasCache = true;
     this.refreshIntervalSeconds = 60;
     this.refreshInterval = null;
@@ -15,6 +14,10 @@ export default class API {
     if (this.token) {
       this.initRefresh();
     }
+  }
+
+  static url() {
+    return process.env.REACT_APP_MENDREK_API_URL;
   }
 
   /**
@@ -39,7 +42,7 @@ export default class API {
       }
     }
 
-    const url = `${this.url}${endpoint}`;
+    const url = `${API.url()}${endpoint}`;
     const options = {
       method: 'GET',
       headers: {
