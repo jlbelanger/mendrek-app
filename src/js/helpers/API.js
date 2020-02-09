@@ -1,18 +1,20 @@
+import { trackPromise } from 'react-promise-tracker';
+import Auth from './Auth';
 import Cache from './Cache';
 
 export default class API {
+  static hasCache = true;
+
+  static refreshIntervalSeconds = 60;
+
   /**
    * @description Initializes API.
    */
   constructor() {
-    this.token = Cache.get('token');
-    this.expires = Cache.get('expires');
-    this.hasCache = true;
-    this.refreshIntervalSeconds = 60;
     this.refreshInterval = null;
 
-    if (this.token) {
-      this.initRefresh();
+    if (Auth.isLoggedIn()) {
+      API.initRefresh();
     }
   }
 
@@ -25,8 +27,8 @@ export default class API {
    * @param {string} endpoint
    * @returns {Promise}
    */
-  request(endpoint) {
-    if (!this.token) {
+  static request(endpoint) {
+    if (!Auth.isLoggedIn()) {
       return Promise.resolve()
         .then(() => {
           throw Error('No token.');
@@ -34,7 +36,7 @@ export default class API {
     }
 
     // Check if the request has already been cached.
-    if (this.hasCache) {
+    if (API.hasCache) {
       const output = Cache.get(endpoint);
       if (output) {
         return Promise.resolve()
@@ -46,11 +48,11 @@ export default class API {
     const options = {
       method: 'GET',
       headers: {
-        Authentication: `Bearer ${this.token}`,
+        Authentication: `Bearer ${Auth.getToken()}`,
       },
     };
 
-    return fetch(url, options)
+    return trackPromise(fetch(url, options)
       .then(response => response.json())
       .then((response) => {
         if (!response.success) {
@@ -60,44 +62,42 @@ export default class API {
         Cache.set(endpoint, response.data);
 
         return response.data;
-      });
+      }));
   }
 
   /**
    * @description Starts refresh token interval.
    */
-  initRefresh() {
-    const seconds = this.refreshIntervalSeconds * 1000;
-    this.refreshAccessToken();
-    this.refreshInterval = setInterval(() => {
-      this.refreshAccessToken();
+  static initRefresh() {
+    const seconds = API.refreshIntervalSeconds * 1000;
+    API.refreshAccessToken();
+    const refreshInterval = setInterval(() => {
+      API.refreshAccessToken();
     }, seconds);
+    return refreshInterval;
   }
 
   /**
    * @description Returns the current datetime plus an offset.
    * @returns {string}
    */
-  getThresholdDate() {
-    const date = new Date(Date.now() + (this.refreshIntervalSeconds * 2000));
+  static getThresholdDate() {
+    const date = new Date(Date.now() + (API.refreshIntervalSeconds * 2000));
     return date.toISOString().slice(0, 19).replace('T', ' ');
   }
 
   /**
    * @description Refreshes the access token.
    */
-  refreshAccessToken() {
-    const threshold = this.getThresholdDate();
-    if (threshold < this.expires) {
+  static refreshAccessToken() {
+    const threshold = API.getThresholdDate();
+    if (threshold < Auth.getExpires()) {
       return;
     }
 
-    this.request('/authenticate/refresh')
+    API.request('/authenticate/refresh')
       .then((data) => {
-        this.token = data.access_token;
-        this.expires = data.expires;
-        Cache.set('token', this.token);
-        Cache.set('expires', this.expires);
+        Auth.setToken(data.access_token, data.expires);
       });
   }
 }

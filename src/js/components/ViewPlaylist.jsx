@@ -1,13 +1,14 @@
 import React from 'react';
+import API from '../helpers/API';
+import Auth from '../helpers/Auth';
 import Search from './Search';
 import Tracks from './Tracks';
-import API from '../helpers/API';
 
 export default class ViewPlaylist extends React.Component {
   state = {
     filterValue: '',
     row: {},
-  };
+  }
 
   /**
    * @description Initializes component.
@@ -40,7 +41,7 @@ export default class ViewPlaylist extends React.Component {
    */
   export = (e) => {
     const format = e.target.getAttribute('data-format');
-    const url = `${API.url()}/playlists/${this.props.match.params.id}.${format}?token=${encodeURIComponent(this.props.api.token)}`;
+    const url = `${API.url()}/playlists/${this.props.match.params.id}.${format}?token=${encodeURIComponent(Auth.getToken())}`;
     window.location.href = url;
   }
 
@@ -48,7 +49,7 @@ export default class ViewPlaylist extends React.Component {
    * @description Fetches data.
    */
   fetch() {
-    this.props.request(`/playlists/${this.props.match.params.id}`)
+    API.request(`/playlists/${this.props.match.params.id}`)
       .then((data) => {
         this.setState({ row: data });
       })

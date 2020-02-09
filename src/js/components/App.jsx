@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import { trackPromise } from 'react-promise-tracker';
 import API from '../helpers/API';
+import Auth from '../helpers/Auth';
 import Cache from '../helpers/Cache';
 import Loading from './Loading';
 import Playlists from './Playlists';
@@ -11,25 +11,25 @@ import ViewArtist from './ViewArtist';
 import ViewPlaylist from './ViewPlaylist';
 
 export default class App extends React.Component {
-  state = this.getInitialState()
-
-  /**
-   * @description Returns the initial state.
-   */
-  getInitialState() {
-    return {
-      api: new API(),
-      user: null,
-    };
+  state = {
+    refreshInterval: null,
+    user: null,
   }
 
   /**
    * @description Fetches data.
    */
   componentDidMount() {
-    this.request('/me')
-      .then((data) => {
-        this.setState({ user: data });
+    if (!Auth.isLoggedIn()) {
+      return;
+    }
+
+    API.request('/me')
+      .then((user) => {
+        this.setState({
+          refreshInterval: API.initRefresh(),
+          user,
+        });
       })
       .catch(() => {
         this.logout();
@@ -37,24 +37,17 @@ export default class App extends React.Component {
   }
 
   /**
-   * @description Makes a request to the API.
-   * @param {string} endpoint
-   * @returns {Promise}
-   */
-  request = (endpoint) => {
-    return trackPromise(this.state.api.request(endpoint));
-  }
-
-  /**
    * @description Logs out the current user.
    */
   logout = () => {
-    this.request('/authenticate/logout')
-      .catch(() => null)
+    API.request('/authenticate/logout')
       .then(() => {
         Cache.clear();
-        clearInterval(this.state.api.refreshInterval);
-        this.setState(this.getInitialState());
+        clearInterval(this.state.refreshInterval);
+        this.setState({
+          refreshInterval: null,
+          user: null,
+        });
       });
   }
 
@@ -74,7 +67,7 @@ export default class App extends React.Component {
    * @description Renders the component.
    */
   render() {
-    if (!this.state.api.token) {
+    if (!Auth.isLoggedIn()) {
       return (
         <Splash />
       );
@@ -95,13 +88,13 @@ export default class App extends React.Component {
                 <li>{this.state.user.id}</li>
                 <li><button type="button" onClick={this.logout}>Logout</button></li>
               </ul>
-              <Playlists request={this.request} />
+              <Playlists />
             </aside>
             <article id="content">
               <Switch>
-                <Route path="/albums/:id" render={props => <ViewAlbum {...props} request={this.request} />} />
-                <Route path="/artists/:id" render={props => <ViewArtist {...props} request={this.request} />} />
-                <Route path="/playlists/:id" render={props => <ViewPlaylist {...props} api={this.state.api} request={this.request} />} />
+                <Route path="/albums/:id" render={props => <ViewAlbum {...props} />} />
+                <Route path="/artists/:id" render={props => <ViewArtist {...props} />} />
+                <Route path="/playlists/:id" render={props => <ViewPlaylist {...props} />} />
               </Switch>
               <Loading />
             </article>

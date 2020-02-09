@@ -1,10 +1,11 @@
 import React from 'react';
+import API from '../helpers/API';
 import Tracks from './Tracks';
 
 export default class ViewAlbum extends React.Component {
   state = {
     row: {},
-  };
+  }
 
   /**
    * @description Initializes component.
@@ -27,7 +28,7 @@ export default class ViewAlbum extends React.Component {
    * @description Fetches data.
    */
   fetch() {
-    this.props.request(`/albums/${this.props.match.params.id}`)
+    API.request(`/albums/${this.props.match.params.id}`)
       .then((data) => {
         this.setState({ row: data });
       })

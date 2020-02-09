@@ -1,5 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import React from 'react';
+import API from '../helpers/API';
 import Search from './Search';
 
 export default class Playlists extends React.Component {
@@ -12,7 +13,7 @@ export default class Playlists extends React.Component {
    * @description Fetches data.
    */
   componentDidMount() {
-    this.props.request('/me/playlists')
+    API.request('/me/playlists')
       .then((data) => {
         this.setState({ rows: data });
       })
