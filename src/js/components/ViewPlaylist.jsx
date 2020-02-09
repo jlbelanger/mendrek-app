@@ -35,9 +35,10 @@ export default class ViewPlaylist extends React.Component {
 
   /**
    * @description Exports a playlist in the given format.
-   * @param {string} format
+   * @param {Object} e
    */
-  export(format) {
+  export = (e) => {
+    const format = e.target.getAttribute('data-format');
     const url = `${this.props.api.url}/playlists/${this.props.match.params.id}.${format}?token=${encodeURIComponent(this.props.api.token)}`;
     window.location.href = url;
   }
@@ -78,8 +79,8 @@ export default class ViewPlaylist extends React.Component {
       <div>
         <div className="header">
           <h1>{this.state.row.name}</h1>
-          <div><button className="button--primary" type="button" onClick={this.export.bind(this, 'csv')}>Export CSV</button></div>
-          <div><button className="button--primary" type="button" onClick={this.export.bind(this, 'json')}>Export JSON</button></div>
+          <div><button className="button--primary" data-format="csv" type="button" onClick={this.export}>Export CSV</button></div>
+          <div><button className="button--primary" data-format="json" type="button" onClick={this.export}>Export JSON</button></div>
         </div>
         <Search filter={this.filter} type="tracks" />
         <Tracks rows={rows} sortKey="" />
