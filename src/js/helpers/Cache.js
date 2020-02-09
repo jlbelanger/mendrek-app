@@ -5,7 +5,7 @@ export default class Cache {
    */
   static get(key) {
     const value = localStorage.getItem(key);
-    if (value && value[0] === '{') {
+    if (value && (value[0] === '{' || value[0] === '[')) {
       try {
         return JSON.parse(value);
       } catch (err) {
