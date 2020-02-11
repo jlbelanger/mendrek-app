@@ -12,11 +12,7 @@ export default class ViewPlaylist extends React.Component {
   }
 
   static propTypes = {
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        id: PropTypes.string,
-      }),
-    }).isRequired,
+    id: PropTypes.string.isRequired,
   }
 
   /**
@@ -31,7 +27,7 @@ export default class ViewPlaylist extends React.Component {
    * @param {Object} prevProps
    */
   componentDidUpdate(prevProps) {
-    if (prevProps.match.params.id !== this.props.match.params.id) {
+    if (prevProps.id !== this.props.id) {
       this.fetch();
     }
   }
@@ -50,7 +46,7 @@ export default class ViewPlaylist extends React.Component {
    */
   export = (e) => {
     const format = e.target.getAttribute('data-format');
-    const url = `${API.url()}/playlists/${this.props.match.params.id}.${format}?token=${encodeURIComponent(Auth.getToken())}`;
+    const url = `${API.url()}/playlists/${this.props.id}.${format}?token=${encodeURIComponent(Auth.getToken())}`;
     window.location.href = url;
   }
 
@@ -58,7 +54,7 @@ export default class ViewPlaylist extends React.Component {
    * @description Fetches data.
    */
   fetch() {
-    API.request(`/playlists/${this.props.match.params.id}`)
+    API.request(`/playlists/${this.props.id}`)
       .then((data) => {
         this.setState({ row: data });
       })

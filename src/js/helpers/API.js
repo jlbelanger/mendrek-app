@@ -3,24 +3,9 @@ import Auth from './Auth';
 import Cache from './Cache';
 
 export default class API {
-  static hasCache = true;
+  static hasCache = true
 
-  static refreshIntervalSeconds = 60;
-
-  /**
-   * @description Initializes API.
-   */
-  constructor() {
-    this.refreshInterval = null;
-
-    if (Auth.isLoggedIn()) {
-      API.initRefresh();
-    }
-  }
-
-  static url() {
-    return process.env.REACT_APP_MENDREK_API_URL;
-  }
+  static refreshIntervalSeconds = 60
 
   /**
    * @description Makes a request to the API.
@@ -66,14 +51,21 @@ export default class API {
   }
 
   /**
+   * @description Returns the API URL.
+   * @returns {string}
+   */
+  static url() {
+    return process.env.REACT_APP_MENDREK_API_URL;
+  }
+
+  /**
    * @description Starts refresh token interval.
    */
   static initRefresh() {
-    const seconds = API.refreshIntervalSeconds * 1000;
     API.refreshAccessToken();
     const refreshInterval = setInterval(() => {
       API.refreshAccessToken();
-    }, seconds);
+    }, API.refreshIntervalSeconds * 1000);
     return refreshInterval;
   }
 

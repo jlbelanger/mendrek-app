@@ -92,9 +92,9 @@ export default class App extends React.Component {
             </aside>
             <article id="content">
               <Switch>
-                <Route path="/albums/:id" render={props => <ViewAlbum {...props} />} />
-                <Route path="/artists/:id" render={props => <ViewArtist {...props} />} />
-                <Route path="/playlists/:id" render={props => <ViewPlaylist {...props} />} />
+                <Route path="/albums/:id" render={props => <ViewAlbum id={props.match.params.id} />} />
+                <Route path="/artists/:id" render={props => <ViewArtist id={props.match.params.id} />} />
+                <Route path="/playlists/:id" render={props => <ViewPlaylist id={props.match.params.id} />} />
               </Switch>
               <Loading />
             </article>

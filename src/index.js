@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import ReactDOM from 'react-dom';
-import Cache from './js/helpers/Cache';
+import Auth from './js/helpers/Auth';
 import Element from './js/helpers/Element';
 import 'normalize.css';
 import './scss/style.scss';
@@ -10,8 +10,7 @@ dotenv.config();
 const params = new URLSearchParams(window.location.search);
 const token = params.get('token');
 if (token) {
-  Cache.set('token', token);
-  Cache.set('expires', params.get('expires'));
+  Auth.setToken(token, params.get('expires'));
   window.location.replace(window.location.origin);
 } else {
   ReactDOM.render(Element(), document.getElementById('root'));
