@@ -45,8 +45,21 @@ Your browser should automatically open http://localhost:3000/
 
 ## Deploying
 
+### First-time setup
+
+Locally, run:
+
 ```
-npm run build
+cp deploy-config.sh.example deploy-config.sh
+cp .env.example .env.production
+```
+
+Set the variables in `deploy-config.sh` and `.env.production`.
+
+### Subsequent deploys
+
+```
+./deploy.sh
 ```
 
 ## Helpful development stuff
