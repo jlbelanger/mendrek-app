@@ -20,6 +20,10 @@ if (token) {
  * @description Adds Google Analytics script to the page.
  */
 function initGoogleAnalytics() {
+  if (!process.env.REACT_APP_GOOGLE_ANALYTICS_ID) {
+    return;
+  }
+
   let script = document.createElement('script');
   script.setAttribute('async', '');
   script.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`);
