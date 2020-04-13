@@ -27,7 +27,7 @@ fi
 
 # Build.
 if [[ -f "package.json" ]]; then
-  npm run build
+  yarn run build
 fi
 
 printf "Creating $BUILD_FOLDER.zip...\n"

@@ -8,7 +8,7 @@ View the app at https://mendrek.jennybelanger.com/
 
 ### Install requirements
 
-* [npm](https://www.npmjs.com/get-npm)
+* [Yarn](https://classic.yarnpkg.com/en/docs/install)
 
 ### Setup the API
 
@@ -16,7 +16,7 @@ See [Mendrek API](https://github.com/jlbelanger/mendrek-api).
 
 ### Clone the app repo
 
-```
+``` bash
 git clone https://github.com/jlbelanger/mendrek-app.git
 cd mendrek-app
 ```
@@ -25,20 +25,20 @@ All other commands should be run in the `mendrek-app` folder.
 
 ### Configure environment settings
 
-```
+``` bash
 cp .env.example .env
 ```
 
 ### Install dependencies
 
-```
-npm install
+``` bash
+yarn install
 ```
 
 ### Start the app
 
-```
-npm start
+``` bash
+yarn start
 ```
 
 Your browser should automatically open http://localhost:3000/
@@ -49,7 +49,7 @@ Your browser should automatically open http://localhost:3000/
 
 Locally, run:
 
-```
+``` bash
 cp deploy-config.sh.example deploy-config.sh
 cp .env.example .env.production
 ```
@@ -58,7 +58,7 @@ Set the variables in `deploy-config.sh` and `.env.production`.
 
 ### Subsequent deploys
 
-```
+``` bash
 ./deploy.sh
 ```
 
@@ -66,6 +66,6 @@ Set the variables in `deploy-config.sh` and `.env.production`.
 
 ### Running tests
 
-```
-npm test
+``` bash
+yarn test
 ```
