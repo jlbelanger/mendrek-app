@@ -45,16 +45,17 @@ Your browser should automatically open http://localhost:3000/
 
 ## Deploying
 
+Note: The deploy script included in this repo depends on other scripts that only exist in my private repos. If you want to deploy this repo, you'll have to create your own script.
+
 ### First-time setup
 
 Locally, run:
 
 ``` bash
-cp deploy-config.sh.example deploy-config.sh
 cp .env.example .env.production
 ```
 
-Set the variables in `deploy-config.sh` and `.env.production`.
+Set the variables in `.env.production`.
 
 ### Subsequent deploys
 

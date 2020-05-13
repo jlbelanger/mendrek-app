@@ -3,6 +3,5 @@
 .env.production
 .gitcommit
 build
-deploy-config.sh
 node_modules
 TODO.md
