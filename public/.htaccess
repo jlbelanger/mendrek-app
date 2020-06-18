@@ -2,7 +2,4 @@ RewriteEngine On
 ErrorDocument 403 /403.html
 ErrorDocument 404 /404.html
 
-# SSL ==============================
-
-RewriteCond %{HTTPS} !=on
-RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+Redirect 301 /favicon.ico /favicon.svg
