@@ -15,10 +15,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "yarn run lint:css && yarn run lint:js",
+    "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "node_modules/.bin/stylelint 'src/scss/**/*.scss'",
     "lint:js": "node_modules/.bin/eslint . --ext .js --ext .jsx",
-    "pretest": "yarn run lint",
+    "pretest": "yarn lint",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
