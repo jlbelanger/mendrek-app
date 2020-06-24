@@ -1,44 +1,44 @@
 table {
-  border-spacing: 0;
-  margin: 16px 0;
-  width: 100%;
+	border-spacing: 0;
+	margin: 16px 0;
+	width: 100%;
 }
 
 td {
-  border-color: $off-black;
-  border-style: solid;
-  border-width: 1px 0 0;
-  max-width: 1px;
-  padding: 16px;
+	border-color: $off-black;
+	border-style: solid;
+	border-width: 1px 0 0;
+	max-width: 1px;
+	padding: 16px;
 }
 
 th {
-  text-align: left;
+	text-align: left;
 
-  button {
-    color: $heading-color;
-    padding-right: $sort-icon-size;
-    position: relative;
-    text-transform: uppercase;
-    width: 100%;
+	button {
+		color: $heading-color;
+		padding-right: $sort-icon-size;
+		position: relative;
+		text-transform: uppercase;
+		width: 100%;
 
-    &:hover,
-    &:active,
-    &:focus {
-      color: $white;
-    }
-  }
+		&:hover,
+		&:active,
+		&:focus {
+			color: $white;
+		}
+	}
 }
 
 .heading--name {
-  width: 50%;
+	width: 50%;
 }
 
 .heading--artist,
 .heading--album {
-  width: 20%;
+	width: 20%;
 }
 
 .heading--date {
-  width: 10%;
+	width: 10%;
 }

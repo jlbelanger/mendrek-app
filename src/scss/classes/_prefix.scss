@@ -1,20 +1,20 @@
 .prefix {
-  border-radius: $button-border-radius 0 0 $button-border-radius;
+	border-radius: $button-border-radius 0 0 $button-border-radius;
 
-  &:hover,
-  &:active {
-    & + .postfix {
-      background-color: $input-background-color--hover;
+	&:hover,
+	&:active {
+		& + .postfix {
+			background-color: $input-background-color--hover;
 
-      &::before { // sass-lint:disable-line nesting-depth
-        background-color: $input-background-color--hover;
-      }
-    }
-  }
+			&::before { // sass-lint:disable-line nesting-depth
+				background-color: $input-background-color--hover;
+			}
+		}
+	}
 
-  &:focus {
-    & + .postfix {
-      box-shadow: 0 0 0 $focus-border-width $secondary;
-    }
-  }
+	&:focus {
+		& + .postfix {
+			box-shadow: 0 0 0 $focus-border-width $secondary;
+		}
+	}
 }

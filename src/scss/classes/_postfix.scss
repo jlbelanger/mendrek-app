@@ -1,22 +1,22 @@
 .postfix {
-  background-color: $input-background-color;
-  border-radius: 0 $button-border-radius $button-border-radius 0;
-  position: relative;
+	background-color: $input-background-color;
+	border-radius: 0 $button-border-radius $button-border-radius 0;
+	position: relative;
 
-  &::before {
-    background-color: $input-background-color;
-    bottom: 0;
-    content: '';
-    display: block;
-    left: #{-1 * $focus-border-width};
-    position: absolute;
-    top: 0;
-    width: $focus-border-width;
-  }
+	&::before {
+		background-color: $input-background-color;
+		bottom: 0;
+		content: '';
+		display: block;
+		left: #{-1 * $focus-border-width};
+		position: absolute;
+		top: 0;
+		width: $focus-border-width;
+	}
 
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: $input-background-color--hover;
-  }
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: $input-background-color--hover;
+	}
 }

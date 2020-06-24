@@ -1,2 +1,6 @@
 rules:
+  indentation:
+    - 2
+    -
+      size: 'tab'
   no-ids: 0

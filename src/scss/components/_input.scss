@@ -1,24 +1,24 @@
 input {
-  background-color: $input-background-color;
-  border-radius: $button-border-radius;
-  border-width: 0;
-  color: $input-color;
-  line-height: 1;
-  padding: $button-padding;
-  width: 100%;
+	background-color: $input-background-color;
+	border-radius: $button-border-radius;
+	border-width: 0;
+	color: $input-color;
+	line-height: 1;
+	padding: $button-padding;
+	width: 100%;
 
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: $input-background-color--hover;
-    color: $input-color--hover;
-  }
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: $input-background-color--hover;
+		color: $input-color--hover;
+	}
 }
 
 ::placeholder {
-  color: $gray;
+	color: $gray;
 }
 
 .search {
-  display: flex;
+	display: flex;
 }

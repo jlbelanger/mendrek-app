@@ -1,26 +1,26 @@
 #spinner {
-  align-items: center;
-  bottom: 0;
-  display: flex;
-  font-size: 0;
-  justify-content: center;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+	align-items: center;
+	bottom: 0;
+	display: flex;
+	font-size: 0;
+	justify-content: center;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
 
-  &::after {
-    @include icon-spinner(#fff);
+	&::after {
+		@include icon-spinner(#fff);
 
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-name: spin;
-    animation-timing-function: linear;
-    background-repeat: no-repeat;
-    background-size: contain;
-    content: '';
-    display: block;
-    height: $spinner-size;
-    width: $spinner-size;
-  }
+		animation-duration: 4s;
+		animation-iteration-count: infinite;
+		animation-name: spin;
+		animation-timing-function: linear;
+		background-repeat: no-repeat;
+		background-size: contain;
+		content: '';
+		display: block;
+		height: $spinner-size;
+		width: $spinner-size;
+	}
 }

@@ -1,23 +1,23 @@
 #container {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 }
 
 #main {
-  display: flex;
-  flex: 1 1 auto;
-  height: 100vh;
+	display: flex;
+	flex: 1 1 auto;
+	height: 100vh;
 }
 
 #sidebar {
-  overflow: auto;
-  width: 20%;
+	overflow: auto;
+	width: 20%;
 }
 
 #content {
-  overflow: auto;
-  padding: 32px;
-  position: relative;
-  width: 80%;
+	overflow: auto;
+	padding: 32px;
+	position: relative;
+	width: 80%;
 }

@@ -1,22 +1,22 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 a {
-  color: $primary;
-  text-decoration: none;
+	color: $primary;
+	text-decoration: none;
 
-  &:hover,
-  &:active,
-  &:focus {
-    color: $primary-light;
-    text-decoration: underline;
-  }
+	&:hover,
+	&:active,
+	&:focus {
+		color: $primary-light;
+		text-decoration: underline;
+	}
 }
 
 body {
-  background-color: $body-background-color;
-  font-family: $body-font-family;
+	background-color: $body-background-color;
+	font-family: $body-font-family;
 }
 
 button,
@@ -27,20 +27,20 @@ p,
 td,
 th,
 ul {
-  color: $body-color;
-  font-size: $body-font-size;
-  line-height: 1.4;
+	color: $body-color;
+	font-size: $body-font-size;
+	line-height: 1.4;
 }
 
 p,
 ul {
-  margin: 16px 0 0;
+	margin: 16px 0 0;
 }
 
 button,
 input {
-  &:focus {
-    box-shadow: 0 0 0 $focus-border-width $secondary;
-    outline: none;
-  }
+	&:focus {
+		box-shadow: 0 0 0 $focus-border-width $secondary;
+		outline: none;
+	}
 }
