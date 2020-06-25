@@ -1,52 +1,52 @@
 {
-  "name": "mendrek-app",
-  "version": "1.0.0",
-  "description": "Do magical things with Spotify.",
-  "author": {
-    "name": "Jenny Belanger",
-    "email": "mail@jennybelanger.com",
-    "url": "https://www.jennybelanger.com/"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jlbelanger/mendrek.git"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "lint": "yarn lint:css && yarn lint:js",
-    "lint:css": "node_modules/.bin/stylelint 'src/scss/**/*.scss'",
-    "lint:js": "node_modules/.bin/eslint . --ext .js --ext .jsx",
-    "pretest": "yarn lint",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "dependencies": {
-    "dotenv": "^7.0.0",
-    "node-sass": "^4.13.1",
-    "normalize.css": "^8.0.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-promise-tracker": "^2.0.5",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "^3.3.1"
-  },
-  "devDependencies": {
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.12.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-jsdoc": "^4.8.3",
-    "sass-lint": "^1.12.1",
-    "stylelint": "^10.1.0",
-    "stylelint-config-standard-scss": "^1.1.0",
-    "stylelint-scss": "^3.9.2"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+	"name": "mendrek-app",
+	"version": "1.0.0",
+	"description": "Do magical things with Spotify.",
+	"author": {
+		"name": "Jenny Belanger",
+		"email": "mail@jennybelanger.com",
+		"url": "https://www.jennybelanger.com/"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jlbelanger/mendrek.git"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"lint": "yarn lint:css && yarn lint:js",
+		"lint:css": "node_modules/.bin/stylelint 'src/scss/**/*.scss'",
+		"lint:js": "node_modules/.bin/eslint . --ext .js --ext .jsx",
+		"pretest": "yarn lint",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"dependencies": {
+		"dotenv": "^7.0.0",
+		"node-sass": "^4.13.1",
+		"normalize.css": "^8.0.1",
+		"prop-types": "^15.7.2",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"react-promise-tracker": "^2.0.5",
+		"react-router-dom": "^5.0.0",
+		"react-scripts": "^3.3.1"
+	},
+	"devDependencies": {
+		"enzyme": "^3.9.0",
+		"enzyme-adapter-react-16": "^1.12.1",
+		"eslint-config-airbnb": "^17.1.0",
+		"eslint-plugin-jsdoc": "^4.8.3",
+		"sass-lint": "^1.12.1",
+		"stylelint": "^10.1.0",
+		"stylelint-config-standard-scss": "^1.1.0",
+		"stylelint-scss": "^3.9.2"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	]
 }

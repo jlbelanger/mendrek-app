@@ -1,6 +1,6 @@
 rules:
-  indentation:
-    - 2
-    -
-      size: 'tab'
-  no-ids: 0
+	indentation:
+		- 2
+		-
+			size: 'tab'
+	no-ids: 0
