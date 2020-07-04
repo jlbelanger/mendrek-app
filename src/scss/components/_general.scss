@@ -41,6 +41,6 @@ button,
 input {
 	&:focus {
 		box-shadow: 0 0 0 $focus-border-width $secondary;
-		outline: none;
+		outline: none !important; // stylelint-disable-line declaration-no-important
 	}
 }

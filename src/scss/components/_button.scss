@@ -43,24 +43,24 @@ button {
 }
 
 .button--clear {
-	@include icon-clear($icon-color);
-
 	&:focus {
-		@include icon-clear($secondary);
-
 		box-shadow: none;
+
+		path {
+			fill: $secondary;
+		}
 	}
 }
 
 .button--search {
-	@include icon-search($icon-color);
-
 	pointer-events: none;
 
 	&:focus {
-		@include icon-search($secondary);
-
 		box-shadow: none;
+
+		path {
+			fill: $secondary;
+		}
 	}
 }
 
@@ -68,11 +68,11 @@ button {
 	color: $white;
 
 	&::after {
-		@include icon-arrow-down($white);
+		@include svg-img('/img/arrow.svg');
 
 		background-position: center;
 		background-repeat: no-repeat;
-		background-size: contain;
+		background-size: 16px;
 		bottom: 0;
 		content: '';
 		display: block;

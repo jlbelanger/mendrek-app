@@ -10,7 +10,7 @@
 	top: 0;
 
 	&::after {
-		@include icon-spinner(#fff);
+		@include svg-img('/img/spinner.svg');
 
 		animation-duration: 4s;
 		animation-iteration-count: infinite;

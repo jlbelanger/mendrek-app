@@ -23,6 +23,7 @@
 		"eject": "react-scripts eject"
 	},
 	"dependencies": {
+		"@svgr/webpack": "^5.4.0",
 		"dotenv": "^7.0.0",
 		"node-sass": "^4.13.1",
 		"normalize.css": "^8.0.1",
