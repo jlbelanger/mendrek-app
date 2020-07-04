@@ -3,5 +3,6 @@
 .env.production
 .gitcommit
 build
+build.zip
 node_modules
 TODO.md
