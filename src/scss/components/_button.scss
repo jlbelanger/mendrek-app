@@ -68,7 +68,7 @@ button {
 	color: $white;
 
 	&::after {
-		@include svg-img('/img/arrow.svg');
+		@include svg-img('../../svg/arrow.svg');
 
 		background-position: center;
 		background-repeat: no-repeat;
