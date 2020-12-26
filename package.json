@@ -23,27 +23,27 @@
 		"eject": "react-scripts eject"
 	},
 	"dependencies": {
-		"@svgr/webpack": "^5.4.0",
-		"dotenv": "^7.0.0",
-		"node-sass": "^4.13.1",
+		"@svgr/webpack": "^5.5.0",
+		"dotenv": "^8.2.0",
+		"node-sass": "^4.14.1",
 		"normalize.css": "^8.0.1",
 		"prop-types": "^15.7.2",
-		"react": "^16.8.6",
-		"react-dom": "^16.8.6",
-		"react-promise-tracker": "^2.0.5",
-		"react-router-dom": "^5.0.0",
-		"react-scripts": "^3.3.1"
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-promise-tracker": "^2.1.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "^4.0.1"
 	},
 	"devDependencies": {
-		"enzyme": "^3.9.0",
-		"enzyme-adapter-react-16": "^1.12.1",
-		"eslint-config-airbnb": "^17.1.0",
-		"eslint-plugin-jsdoc": "^4.8.3",
-		"sass-lint": "^1.12.1",
-		"stylelint": "^10.1.0",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.5",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-plugin-jsdoc": "^30.7.9",
+		"sass-lint": "^1.13.1",
+		"stylelint": "^13.8.0",
 		"stylelint-config-standard-scss": "^1.1.0",
 		"stylelint-order": "^4.1.0",
-		"stylelint-scss": "^3.9.2"
+		"stylelint-scss": "^3.18.0"
 	},
 	"browserslist": [
 		">0.2%",

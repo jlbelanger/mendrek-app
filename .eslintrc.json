@@ -22,13 +22,17 @@
 		"jsdoc/require-description": 1,
 		"jsdoc/require-description-complete-sentence": 1,
 		"jsdoc/require-hyphen-before-param-description": 1,
-		"jsdoc/require-param": 1,
 		"jsdoc/require-param-name": 1,
 		"jsdoc/require-param-type": 1,
+		"jsdoc/require-param": 1,
 		"jsdoc/require-returns-check": 1,
 		"jsdoc/require-returns-type": 1,
 		"jsdoc/valid-types": 1,
 		"react/destructuring-assignment": 0,
-		"react/forbid-prop-types": 0
+		"react/forbid-prop-types": 0,
+		"react/jsx-indent-props": ["error", "tab"],
+		"react/jsx-indent": ["error", "tab"],
+		"react/state-in-constructor": ["error", "never"],
+		"react/static-property-placement": ["error", "static public field"]
 	}
 }

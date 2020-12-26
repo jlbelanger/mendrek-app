@@ -10,7 +10,7 @@ export default class Playlists extends React.Component {
 	}
 
 	/**
-	 * @description Fetches data.
+	 * Fetches data.
 	 */
 	componentDidMount() {
 		API.request('/me/playlists')
@@ -23,7 +23,7 @@ export default class Playlists extends React.Component {
 	}
 
 	/**
-	 * @description Sets the search filter.
+	 * Sets the search filter.
 	 * @param {string} value
 	 */
 	filter = (value) => {
@@ -31,7 +31,7 @@ export default class Playlists extends React.Component {
 	}
 
 	/**
-	 * @description Renders the component.
+	 * Renders the component.
 	 */
 	render() {
 		if (this.state.rows === null) {
@@ -46,7 +46,7 @@ export default class Playlists extends React.Component {
 			);
 		}
 
-		let list = this.state.rows.filter(playlist => (
+		let list = this.state.rows.filter((playlist) => (
 			playlist.name.toLowerCase().indexOf(this.state.filterValue.toLowerCase()) !== -1
 		));
 

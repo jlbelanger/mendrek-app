@@ -8,7 +8,7 @@ export default class API {
 	static refreshIntervalSeconds = 60
 
 	/**
-	 * @description Makes a request to the API.
+	 * Makes a request to the API.
 	 * @param {string} endpoint
 	 * @returns {Promise}
 	 */
@@ -38,7 +38,7 @@ export default class API {
 		};
 
 		return trackPromise(fetch(url, options)
-			.then(response => response.json())
+			.then((response) => response.json())
 			.then((response) => {
 				if (!response.success) {
 					throw Error(response.data);
@@ -51,7 +51,7 @@ export default class API {
 	}
 
 	/**
-	 * @description Returns the API URL.
+	 * Returns the API URL.
 	 * @returns {string}
 	 */
 	static url() {
@@ -59,7 +59,7 @@ export default class API {
 	}
 
 	/**
-	 * @description Starts refresh token interval.
+	 * Starts refresh token interval.
 	 */
 	static initRefresh() {
 		API.refreshAccessToken();
@@ -70,7 +70,7 @@ export default class API {
 	}
 
 	/**
-	 * @description Returns the current datetime plus an offset.
+	 * Returns the current datetime plus an offset.
 	 * @returns {string}
 	 */
 	static getThresholdDate() {
@@ -79,7 +79,7 @@ export default class API {
 	}
 
 	/**
-	 * @description Refreshes the access token.
+	 * Refreshes the access token.
 	 */
 	static refreshAccessToken() {
 		const threshold = API.getThresholdDate();

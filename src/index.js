@@ -17,7 +17,7 @@ if (token) {
 }
 
 /**
- * @description Adds Google Analytics script to the page.
+ * Adds Google Analytics script to the page.
  */
 function initGoogleAnalytics() {
 	if (!process.env.REACT_APP_GOOGLE_ANALYTICS_ID) {

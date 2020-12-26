@@ -3,14 +3,14 @@ import API from '../helpers/API';
 
 export default class Splash extends React.Component {
 	/**
-	 * @description Redirects the user to Spotify for authentication.
+	 * Redirects the user to Spotify for authentication.
 	 */
 	login = () => {
 		window.location.assign(`${API.url()}/authenticate`);
 	}
 
 	/**
-	 * @description Renders the component.
+	 * Renders the component.
 	 */
 	render() {
 		return (

@@ -17,7 +17,7 @@ export default class App extends React.Component {
 	}
 
 	/**
-	 * @description Fetches data.
+	 * Fetches data.
 	 */
 	componentDidMount() {
 		if (!Auth.isLoggedIn()) {
@@ -37,7 +37,7 @@ export default class App extends React.Component {
 	}
 
 	/**
-	 * @description Logs out the current user.
+	 * Logs out the current user.
 	 */
 	logout = () => {
 		API.request('/authenticate/logout')
@@ -52,7 +52,7 @@ export default class App extends React.Component {
 	}
 
 	/**
-	 * @description Moves keyboard focus to the main content.
+	 * Moves keyboard focus to the main content.
 	 */
 	skip = () => {
 		const elem = document.getElementById('content');
@@ -64,7 +64,7 @@ export default class App extends React.Component {
 	}
 
 	/**
-	 * @description Renders the component.
+	 * Renders the component.
 	 */
 	render() {
 		if (!Auth.isLoggedIn()) {
@@ -92,9 +92,9 @@ export default class App extends React.Component {
 						</aside>
 						<article id="content">
 							<Switch>
-								<Route path="/albums/:id" render={props => <ViewAlbum id={props.match.params.id} />} />
-								<Route path="/artists/:id" render={props => <ViewArtist id={props.match.params.id} />} />
-								<Route path="/playlists/:id" render={props => <ViewPlaylist id={props.match.params.id} />} />
+								<Route path="/albums/:id" render={(props) => <ViewAlbum id={props.match.params.id} />} />
+								<Route path="/artists/:id" render={(props) => <ViewArtist id={props.match.params.id} />} />
+								<Route path="/playlists/:id" render={(props) => <ViewPlaylist id={props.match.params.id} />} />
 							</Switch>
 							<Loading />
 						</article>

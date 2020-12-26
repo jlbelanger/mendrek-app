@@ -13,15 +13,15 @@ export default class ViewArtist extends React.Component {
 	}
 
 	/**
-	 * @description Initializes component.
+	 * Initializes component.
 	 */
 	componentDidMount() {
 		this.fetch();
 	}
 
 	/**
-	 * @description Reinitializes component.
-	 * @param {Object} prevProps
+	 * Reinitializes component.
+	 * @param {object} prevProps
 	 */
 	componentDidUpdate(prevProps) {
 		if (prevProps.id !== this.props.id) {
@@ -30,7 +30,7 @@ export default class ViewArtist extends React.Component {
 	}
 
 	/**
-	 * @description Fetches data.
+	 * Fetches data.
 	 */
 	fetch() {
 		API.request(`/artists/${this.props.id}`)
@@ -43,7 +43,7 @@ export default class ViewArtist extends React.Component {
 	}
 
 	/**
-	 * @description Renders the component.
+	 * Renders the component.
 	 */
 	render() {
 		if (this.state.row === null) {

@@ -14,12 +14,12 @@ export default class Tracks extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = this.getInitialState(props);
+		this.state = this.getInitialState(props); // eslint-disable-line react/state-in-constructor
 	}
 
 	/**
-	 * @description Returns the initial state.
-	 * @param {Object} props
+	 * Returns the initial state.
+	 * @param {object} props
 	 */
 	getInitialState(props) {
 		return {
@@ -29,18 +29,18 @@ export default class Tracks extends React.Component {
 	}
 
 	/**
-	 * @description Reinitializes component.
-	 * @param {Object} newProps
+	 * Reinitializes component.
+	 * @param {object} newProps
 	 */
-	componentWillReceiveProps(newProps) {
+	UNSAFE_componentWillReceiveProps(newProps) { // eslint-disable-line camelcase
 		if (newProps.rows !== this.props.rows) {
 			this.setState(this.getInitialState(newProps));
 		}
 	}
 
 	/**
-	 * @description Sorts the table by the given column.
-	 * @param {Object} e
+	 * Sorts the table by the given column.
+	 * @param {object} e
 	 */
 	onClickSort = (e) => {
 		const key = e.target.getAttribute('data-key');
@@ -55,7 +55,7 @@ export default class Tracks extends React.Component {
 	}
 
 	/**
-	 * @description Renders the component.
+	 * Renders the component.
 	 */
 	render() {
 		if (this.props.rows === null) {
@@ -71,7 +71,7 @@ export default class Tracks extends React.Component {
 				return {
 					id: track.id,
 					name: track.name,
-					artist: track.artists.map(artist => artist.name).join(', '),
+					artist: track.artists.map((artist) => artist.name).join(', '),
 					artists: track.artists,
 					album: album.name,
 					album_id: album.id,
@@ -99,7 +99,7 @@ export default class Tracks extends React.Component {
 
 				let artistLinks;
 				if (item.artists) {
-					artistLinks = item.artists.map(artist => (
+					artistLinks = item.artists.map((artist) => (
 						<li key={artist.id}>
 							<Link title={artist.name} to={`/artists/${artist.id}`}>{artist.name}</Link>
 						</li>

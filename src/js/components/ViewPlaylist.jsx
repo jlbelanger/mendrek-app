@@ -16,15 +16,15 @@ export default class ViewPlaylist extends React.Component {
 	}
 
 	/**
-	 * @description Initializes component.
+	 * Initializes component.
 	 */
 	componentDidMount() {
 		this.fetch();
 	}
 
 	/**
-	 * @description Reinitializes component.
-	 * @param {Object} prevProps
+	 * Reinitializes component.
+	 * @param {object} prevProps
 	 */
 	componentDidUpdate(prevProps) {
 		if (prevProps.id !== this.props.id) {
@@ -33,7 +33,7 @@ export default class ViewPlaylist extends React.Component {
 	}
 
 	/**
-	 * @description Sets the search filter.
+	 * Sets the search filter.
 	 * @param {string} value
 	 */
 	filter = (value) => {
@@ -41,8 +41,8 @@ export default class ViewPlaylist extends React.Component {
 	}
 
 	/**
-	 * @description Exports a playlist in the given format.
-	 * @param {Object} e
+	 * Exports a playlist in the given format.
+	 * @param {object} e
 	 */
 	export = (e) => {
 		const format = e.target.getAttribute('data-format');
@@ -51,7 +51,7 @@ export default class ViewPlaylist extends React.Component {
 	}
 
 	/**
-	 * @description Fetches data.
+	 * Fetches data.
 	 */
 	fetch() {
 		API.request(`/playlists/${this.props.id}`)
@@ -64,7 +64,7 @@ export default class ViewPlaylist extends React.Component {
 	}
 
 	/**
-	 * @description Renders the component.
+	 * Renders the component.
 	 */
 	render() {
 		if (this.state.row === null) {

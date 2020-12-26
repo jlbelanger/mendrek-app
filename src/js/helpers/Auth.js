@@ -2,7 +2,7 @@ import Cache from './Cache';
 
 export default class Auth {
 	/**
-	 * @description Returns the current user's token.
+	 * Returns the current user's token.
 	 * @returns {string}
 	 */
 	static getToken() {
@@ -10,7 +10,7 @@ export default class Auth {
 	}
 
 	/**
-	 * @description Returns the current user's token expiry.
+	 * Returns the current user's token expiry.
 	 * @returns {number}
 	 */
 	static getExpires() {
@@ -18,7 +18,7 @@ export default class Auth {
 	}
 
 	/**
-	 * @description Returns true if a user is logged in.
+	 * Returns true if a user is logged in.
 	 * @returns {boolean}
 	 */
 	static isLoggedIn() {
@@ -26,7 +26,7 @@ export default class Auth {
 	}
 
 	/**
-	 * @description Sets the current user's token.
+	 * Sets the current user's token.
 	 * @param {string} token
 	 * @param {number} expires
 	 */

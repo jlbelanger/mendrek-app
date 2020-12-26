@@ -14,7 +14,7 @@ export default class Search extends React.Component {
 	}
 
 	/**
-	 * @description Handles button click.
+	 * Handles button click.
 	 */
 	onClick = () => {
 		if (this.isSearching()) {
@@ -23,16 +23,16 @@ export default class Search extends React.Component {
 	}
 
 	/**
-	 * @description Prevents page reload on form submission.
-	 * @param {Object} e
+	 * Prevents page reload on form submission.
+	 * @param {object} e
 	 */
 	onSubmit = (e) => {
 		e.preventDefault();
 	}
 
 	/**
-	 * @description Filters the results by the current search field value.
-	 * @param {Object} e
+	 * Filters the results by the current search field value.
+	 * @param {object} e
 	 */
 	filter = (e) => {
 		this.setState({ value: e.target.value });
@@ -40,7 +40,7 @@ export default class Search extends React.Component {
 	}
 
 	/**
-	 * @description Clears the search field value.
+	 * Clears the search field value.
 	 */
 	clear() {
 		this.setState({ value: '' });
@@ -48,14 +48,14 @@ export default class Search extends React.Component {
 	}
 
 	/**
-	 * @description Returns true if the search field is not empty.
+	 * Returns true if the search field is not empty.
 	 */
 	isSearching() {
 		return this.state.value;
 	}
 
 	/**
-	 * @description Renders the component.
+	 * Renders the component.
 	 */
 	render() {
 		const inputLabel = `Filter ${this.props.type}`;

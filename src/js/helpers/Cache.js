@@ -1,6 +1,6 @@
 export default class Cache {
 	/**
-	 * @description Retrieves data from the cache.
+	 * Retrieves data from the cache.
 	 * @param {string} key
 	 */
 	static get(key) {
@@ -16,7 +16,7 @@ export default class Cache {
 	}
 
 	/**
-	 * @description Saves data to the cache.
+	 * Saves data to the cache.
 	 * @param {string} key
 	 * @param {any} value
 	 */
@@ -29,7 +29,7 @@ export default class Cache {
 	}
 
 	/**
-	 * @description Deletes all cached data.
+	 * Deletes all cached data.
 	 */
 	static clear() {
 		localStorage.clear();
