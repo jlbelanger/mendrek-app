@@ -10,7 +10,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/jlbelanger/mendrek.git"
+		"url": "https://github.com/jlbelanger/mendrek-app.git"
 	},
 	"scripts": {
 		"start": "react-scripts start",
