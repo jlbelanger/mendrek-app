@@ -8,7 +8,7 @@ View the app at https://mendrek.jennybelanger.com/
 
 ### Install requirements
 
-* [Yarn](https://classic.yarnpkg.com/en/docs/install)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install)
 
 ### Setup the API
 
@@ -43,7 +43,7 @@ yarn start
 
 Your browser should automatically open http://localhost:3000/
 
-## Deploying
+## Deployment
 
 Note: The deploy script included in this repo depends on other scripts that only exist in my private repos. If you want to deploy this repo, you'll have to create your own script.
 
@@ -65,7 +65,13 @@ Set the variables in `.env.production`.
 
 ## Helpful development stuff
 
-### Running tests
+### Lint
+
+``` bash
+yarn lint
+```
+
+### Test
 
 ``` bash
 yarn test
