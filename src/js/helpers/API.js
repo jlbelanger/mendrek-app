@@ -3,9 +3,9 @@ import Auth from './Auth';
 import Cache from './Cache';
 
 export default class API {
-	static hasCache = true
+	static hasCache = true;
 
-	static refreshIntervalSeconds = 60
+	static refreshIntervalSeconds = 60;
 
 	/**
 	 * Makes a request to the API.

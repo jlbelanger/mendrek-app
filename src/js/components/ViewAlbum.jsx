@@ -6,11 +6,11 @@ import Tracks from './Tracks';
 export default class ViewAlbum extends React.Component {
 	state = {
 		row: {},
-	}
+	};
 
 	static propTypes = {
 		id: PropTypes.string.isRequired,
-	}
+	};
 
 	/**
 	 * Initializes component.

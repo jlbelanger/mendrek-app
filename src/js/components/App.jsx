@@ -14,7 +14,7 @@ export default class App extends React.Component {
 	state = {
 		refreshInterval: null,
 		user: null,
-	}
+	};
 
 	/**
 	 * Fetches data.
@@ -49,19 +49,19 @@ export default class App extends React.Component {
 					user: null,
 				});
 			});
-	}
+	};
 
 	/**
 	 * Moves keyboard focus to the main content.
 	 */
-	skip = () => {
+	skip = () => { // eslint-disable-line class-methods-use-this
 		const elem = document.getElementById('content');
 		elem.setAttribute('tabindex', -1);
 		elem.addEventListener('blur', () => {
 			elem.removeAttribute('tabindex');
 		});
 		elem.focus();
-	}
+	};
 
 	/**
 	 * Renders the component.

@@ -6,11 +6,11 @@ export default class Tracks extends React.Component {
 	static propTypes = {
 		album: PropTypes.object,
 		rows: PropTypes.array.isRequired,
-	}
+	};
 
 	static defaultProps = {
 		album: null,
-	}
+	};
 
 	constructor(props) {
 		super(props);
@@ -52,7 +52,7 @@ export default class Tracks extends React.Component {
 		} else {
 			this.setState({ sortKey: key, sortDirection: 'asc' });
 		}
-	}
+	};
 
 	/**
 	 * Renders the component.
@@ -129,10 +129,46 @@ export default class Tracks extends React.Component {
 			<table className={tableClass}>
 				<thead>
 					<tr>
-						<th className="heading--name"><button className={this.state.sortKey === 'name' ? 'button--sort' : ''} data-key="name" type="button" onClick={this.onClickSort}>Name</button></th>
-						<th className="heading--artist"><button className={this.state.sortKey === 'artist' ? 'button--sort' : ''} data-key="artist" type="button" onClick={this.onClickSort}>Artist</button></th>
-						<th className="heading--album"><button className={this.state.sortKey === 'album' ? 'button--sort' : ''} data-key="album" type="button" onClick={this.onClickSort}>Album</button></th>
-						<th className="heading--date"><button className={this.state.sortKey === 'date' ? 'button--sort' : ''} data-key="date" type="button" onClick={this.onClickSort}>Year</button></th>
+						<th className="heading--name">
+							<button
+								className={this.state.sortKey === 'name' ? 'button--sort' : ''}
+								data-key="name"
+								type="button"
+								onClick={this.onClickSort}
+							>
+								Name
+							</button>
+						</th>
+						<th className="heading--artist">
+							<button
+								className={this.state.sortKey === 'artist' ? 'button--sort' : ''}
+								data-key="artist"
+								type="button"
+								onClick={this.onClickSort}
+							>
+								Artist
+							</button>
+						</th>
+						<th className="heading--album">
+							<button
+								className={this.state.sortKey === 'album' ? 'button--sort' : ''}
+								data-key="album"
+								type="button"
+								onClick={this.onClickSort}
+							>
+								Album
+							</button>
+						</th>
+						<th className="heading--date">
+							<button
+								className={this.state.sortKey === 'date' ? 'button--sort' : ''}
+								data-key="date"
+								type="button"
+								onClick={this.onClickSort}
+							>
+								Year
+							</button>
+						</th>
 					</tr>
 				</thead>
 				<tbody>

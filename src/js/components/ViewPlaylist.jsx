@@ -9,11 +9,11 @@ export default class ViewPlaylist extends React.Component {
 	state = {
 		filterValue: '',
 		row: {},
-	}
+	};
 
 	static propTypes = {
 		id: PropTypes.string.isRequired,
-	}
+	};
 
 	/**
 	 * Initializes component.
@@ -38,7 +38,7 @@ export default class ViewPlaylist extends React.Component {
 	 */
 	filter = (value) => {
 		this.setState({ filterValue: value });
-	}
+	};
 
 	/**
 	 * Exports a playlist in the given format.
@@ -48,7 +48,7 @@ export default class ViewPlaylist extends React.Component {
 		const format = e.target.getAttribute('data-format');
 		const url = `${API.url()}/playlists/${this.props.id}.${format}?token=${encodeURIComponent(Auth.getToken())}`;
 		window.location.href = url;
-	}
+	};
 
 	/**
 	 * Fetches data.

@@ -7,7 +7,7 @@ export default class Playlists extends React.Component {
 	state = {
 		filterValue: '',
 		rows: [],
-	}
+	};
 
 	/**
 	 * Fetches data.
@@ -28,7 +28,7 @@ export default class Playlists extends React.Component {
 	 */
 	filter = (value) => {
 		this.setState({ filterValue: value });
-	}
+	};
 
 	/**
 	 * Renders the component.

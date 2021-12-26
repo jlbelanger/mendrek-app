@@ -5,9 +5,9 @@ export default class Splash extends React.Component {
 	/**
 	 * Redirects the user to Spotify for authentication.
 	 */
-	login = () => {
+	login = () => { // eslint-disable-line class-methods-use-this
 		window.location.assign(`${API.url()}/authenticate`);
-	}
+	};
 
 	/**
 	 * Renders the component.

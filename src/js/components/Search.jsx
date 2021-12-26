@@ -6,12 +6,12 @@ import { ReactComponent as SearchIcon } from '../../svg/search.svg';
 export default class Search extends React.Component {
 	state = {
 		value: '',
-	}
+	};
 
 	static propTypes = {
 		filter: PropTypes.func.isRequired,
 		type: PropTypes.string.isRequired,
-	}
+	};
 
 	/**
 	 * Handles button click.
@@ -20,15 +20,15 @@ export default class Search extends React.Component {
 		if (this.isSearching()) {
 			this.clear();
 		}
-	}
+	};
 
 	/**
 	 * Prevents page reload on form submission.
 	 * @param {object} e
 	 */
-	onSubmit = (e) => {
+	onSubmit = (e) => { // eslint-disable-line class-methods-use-this
 		e.preventDefault();
-	}
+	};
 
 	/**
 	 * Filters the results by the current search field value.
@@ -37,7 +37,7 @@ export default class Search extends React.Component {
 	filter = (e) => {
 		this.setState({ value: e.target.value });
 		this.props.filter(e.target.value);
-	}
+	};
 
 	/**
 	 * Clears the search field value.
@@ -71,7 +71,14 @@ export default class Search extends React.Component {
 		return (
 			<form onSubmit={this.onSubmit}>
 				<p className="search">
-					<input aria-label={inputLabel} className="prefix" placeholder={inputLabel} type="text" value={this.state.value} onChange={this.filter} />
+					<input
+						aria-label={inputLabel}
+						className="prefix"
+						placeholder={inputLabel}
+						type="text"
+						value={this.state.value}
+						onChange={this.filter}
+					/>
 					<button className={buttonClass} type="button" onClick={this.onClick}>
 						<Icon />
 						<span>{buttonText}</span>
