@@ -1,11 +1,8 @@
-import dotenv from 'dotenv';
 import ReactDOM from 'react-dom';
 import Auth from './js/helpers/Auth';
 import Element from './js/helpers/Element';
 import 'normalize.css';
 import './scss/style.scss';
-
-dotenv.config();
 
 const params = new URLSearchParams(window.location.search);
 const token = params.get('token');
