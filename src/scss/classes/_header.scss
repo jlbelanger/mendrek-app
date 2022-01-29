@@ -2,6 +2,12 @@
 	align-items: center;
 	display: flex;
 
+	small {
+		font-size: 18px;
+		font-weight: normal;
+		margin-left: 8px;
+	}
+
 	button {
 		margin-left: 16px;
 	}

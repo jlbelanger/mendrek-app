@@ -85,7 +85,10 @@ export default class ViewPlaylist extends React.Component {
 		return (
 			<div>
 				<div className="header">
-					<h1>{this.state.row.name}</h1>
+					<h1>
+						{this.state.row.name}
+						<small>{`(${this.state.row.total})`}</small>
+					</h1>
 					<div><button className="button--primary" data-format="csv" type="button" onClick={this.export}>Export CSV</button></div>
 					<div><button className="button--primary" data-format="json" type="button" onClick={this.export}>Export JSON</button></div>
 				</div>
