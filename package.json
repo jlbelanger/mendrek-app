@@ -2,7 +2,7 @@
 	"name": "mendrek-app",
 	"version": "1.0.0",
 	"description": "Do magical things with Spotify.",
-	"license": "MIT",
+	"license": "GPL-3.0-only",
 	"author": {
 		"name": "Jenny Belanger",
 		"email": "mail@jennybelanger.com",
