@@ -3,7 +3,8 @@
 .env.production
 .eslintcache
 .gitcommit
-build
+*.log
+/build
 build.zip
 node_modules
 TODO.md
