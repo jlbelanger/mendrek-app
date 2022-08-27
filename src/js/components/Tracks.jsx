@@ -129,7 +129,7 @@ export default class Tracks extends React.Component {
 			<table className={tableClass}>
 				<thead>
 					<tr>
-						<th className="heading--name">
+						<th className="heading--name" scope="col">
 							<button
 								className={this.state.sortKey === 'name' ? 'button--sort' : ''}
 								data-key="name"
@@ -139,7 +139,7 @@ export default class Tracks extends React.Component {
 								Name
 							</button>
 						</th>
-						<th className="heading--artist">
+						<th className="heading--artist" scope="col">
 							<button
 								className={this.state.sortKey === 'artist' ? 'button--sort' : ''}
 								data-key="artist"
@@ -149,7 +149,7 @@ export default class Tracks extends React.Component {
 								Artist
 							</button>
 						</th>
-						<th className="heading--album">
+						<th className="heading--album" scope="col">
 							<button
 								className={this.state.sortKey === 'album' ? 'button--sort' : ''}
 								data-key="album"
@@ -159,7 +159,7 @@ export default class Tracks extends React.Component {
 								Album
 							</button>
 						</th>
-						<th className="heading--date">
+						<th className="heading--date" scope="col">
 							<button
 								className={this.state.sortKey === 'date' ? 'button--sort' : ''}
 								data-key="date"
