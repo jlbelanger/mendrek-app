@@ -6,7 +6,7 @@
 		& + .postfix {
 			background-color: $input-background-color--hover;
 
-			&::before { // sass-lint:disable-line nesting-depth
+			&::before {
 				background-color: $input-background-color--hover;
 			}
 		}
