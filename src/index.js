@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import Auth from './js/helpers/Auth';
 import Element from './js/helpers/Element';
 import 'normalize.css';
@@ -10,5 +10,6 @@ if (token) {
 	Auth.setToken(token, params.get('expires'));
 	window.location.replace(window.location.origin);
 } else {
-	ReactDOM.render(Element(), document.getElementById('root'));
+	const root = ReactDOM.createRoot(document.getElementById('root'));
+	root.render(Element());
 }
