@@ -1,6 +1,6 @@
-import { trackPromise } from 'react-promise-tracker';
 import Auth from './Auth';
 import Cache from './Cache';
+import { trackPromise } from 'react-promise-tracker';
 
 export default class API {
 	static hasCache = true;

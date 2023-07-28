@@ -1,6 +1,6 @@
-import ReactDOM from 'react-dom/client';
 import Auth from './js/helpers/Auth';
 import Element from './js/helpers/Element';
+import ReactDOM from 'react-dom/client';
 import 'normalize.css';
 import './scss/style.scss';
 
