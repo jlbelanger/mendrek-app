@@ -1,5 +1,8 @@
+@use '../utilities/colors';
+@use '../utilities/variables';
+
 h1 {
-	color: $white;
+	color: colors.$white;
 	font-size: 36px;
 	font-weight: bold;
 	margin: 0;
@@ -7,8 +10,8 @@ h1 {
 
 h2,
 th {
-	color: $heading-color;
-	font-size: $body-font-size;
+	color: colors.$heading-color;
+	font-size: variables.$body-font-size;
 	letter-spacing: 2px;
 	margin: 0;
 	text-transform: uppercase;

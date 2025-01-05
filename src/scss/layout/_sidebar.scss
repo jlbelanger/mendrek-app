@@ -1,5 +1,9 @@
+@use 'sass:color';
+@use '../utilities/colors';
+@use '../utilities/variables';
+
 #sidebar {
-	background-color: $sidebar-background-color;
+	background-color: colors.$sidebar-background-color;
 
 	.search {
 		padding: 0 16px 16px;
@@ -44,8 +48,8 @@
 .playlist {
 	border-color: transparent;
 	border-style: solid;
-	border-width: 0 0 0 $button-border-width;
-	color: $body-color;
+	border-width: 0 0 0 variables.$button-border-width;
+	color: colors.$body-color;
 	display: block;
 	line-height: 1;
 	padding: 16px;
@@ -53,14 +57,14 @@
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: $button-background-color--hover;
-		color: $button-color--hover;
+		background-color: colors.$button-background-color--hover;
+		color: colors.$button-color--hover;
 		text-decoration: none;
 	}
 }
 
 .playlist--active {
-	background-color: scale-color($sidebar-background-color, $lightness: 5%);
-	border-color: $primary;
-	color: $white;
+	background-color: color.scale(colors.$sidebar-background-color, $lightness: 5%);
+	border-color: colors.$primary;
+	color: colors.$white;
 }

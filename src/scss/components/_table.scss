@@ -1,3 +1,6 @@
+@use '../utilities/colors';
+@use '../utilities/variables';
+
 table {
 	border-spacing: 0;
 	margin: 16px 0;
@@ -5,7 +8,7 @@ table {
 }
 
 td {
-	border-color: $off-black;
+	border-color: colors.$off-black;
 	border-style: solid;
 	border-width: 1px 0 0;
 	max-width: 1px;
@@ -16,8 +19,8 @@ th {
 	text-align: left;
 
 	button {
-		color: $heading-color;
-		padding-right: $sort-icon-size;
+		color: colors.$heading-color;
+		padding-right: variables.$sort-icon-size;
 		position: relative;
 		text-transform: uppercase;
 		width: 100%;
@@ -25,7 +28,7 @@ th {
 		&:hover,
 		&:active,
 		&:focus {
-			color: $white;
+			color: colors.$white;
 		}
 	}
 }

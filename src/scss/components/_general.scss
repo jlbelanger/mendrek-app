@@ -1,22 +1,25 @@
+@use '../utilities/colors';
+@use '../utilities/variables';
+
 * {
 	box-sizing: border-box;
 }
 
 a {
-	color: $primary;
+	color: colors.$primary;
 	text-decoration: none;
 
 	&:hover,
 	&:active,
 	&:focus {
-		color: $primary-light;
+		color: colors.$primary-light;
 		text-decoration: underline;
 	}
 }
 
 body {
-	background-color: $body-background-color;
-	font-family: $body-font-family;
+	background-color: colors.$body-background-color;
+	font-family: variables.$body-font-family;
 }
 
 button,
@@ -27,8 +30,8 @@ p,
 td,
 th,
 ul {
-	color: $body-color;
-	font-size: $body-font-size;
+	color: colors.$body-color;
+	font-size: variables.$body-font-size;
 	line-height: 1.4;
 }
 
@@ -40,7 +43,7 @@ ul {
 button,
 input {
 	&:focus {
-		box-shadow: 0 0 0 $focus-border-width $secondary;
-		outline: none !important; // stylelint-disable-line declaration-no-important
+		box-shadow: 0 0 0 variables.$focus-border-width colors.$secondary;
+		outline: none !important; /* stylelint-disable-line declaration-no-important */
 	}
 }

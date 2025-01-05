@@ -1,22 +1,25 @@
+@use '../utilities/colors';
+@use '../utilities/variables';
+
 .postfix {
-	background-color: $input-background-color;
-	border-radius: 0 $button-border-radius $button-border-radius 0;
+	background-color: colors.$input-background-color;
+	border-radius: 0 variables.$button-border-radius variables.$button-border-radius 0;
 	position: relative;
 
 	&::before {
-		background-color: $input-background-color;
+		background-color: colors.$input-background-color;
 		bottom: 0;
 		content: '';
 		display: block;
-		left: #{-1 * $focus-border-width};
+		left: calc(variables.$focus-border-width * -1);
 		position: absolute;
 		top: 0;
-		width: $focus-border-width;
+		width: variables.$focus-border-width;
 	}
 
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: $input-background-color--hover;
+		background-color: colors.$input-background-color--hover;
 	}
 }

@@ -1,36 +1,39 @@
+@use '../utilities/colors';
+@use '../utilities/variables';
+
 button {
-	background-color: $button-background-color;
+	background-color: colors.$button-background-color;
 	border-color: transparent;
 	border-style: solid;
 	border-width: 0;
-	color: $button-color;
+	color: colors.$button-color;
 	cursor: pointer;
 	line-height: 1;
-	padding: $button-padding;
+	padding: variables.$button-padding;
 
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: $button-background-color--hover;
-		border-color: $button-border-color--hover;
-		color: $button-color--hover;
+		background-color: colors.$button-background-color--hover;
+		border-color: colors.$button-border-color--hover;
+		color: colors.$button-color--hover;
 	}
 }
 
 .button--primary {
-	background-color: $primary;
-	border-color: $primary-dark;
-	border-radius: $button-border-radius;
-	border-width: 0 $button-border-width $button-border-width 0;
-	color: $black;
+	background-color: colors.$primary;
+	border-color: colors.$primary-dark;
+	border-radius: variables.$button-border-radius;
+	border-width: 0 variables.$button-border-width variables.$button-border-width 0;
+	color: colors.$black;
 	font-weight: 500;
 
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: $primary-light;
-		border-color: $primary-dark;
-		color: $black;
+		background-color: colors.$primary-light;
+		border-color: colors.$primary-dark;
+		color: colors.$black;
 	}
 }
 
@@ -47,7 +50,7 @@ button {
 		box-shadow: none;
 
 		path {
-			fill: $secondary;
+			fill: colors.$secondary;
 		}
 	}
 }
@@ -59,28 +62,27 @@ button {
 		box-shadow: none;
 
 		path {
-			fill: $secondary;
+			fill: colors.$secondary;
 		}
 	}
 }
 
 .button--sort {
-	color: $white;
+	color: colors.$white;
 
 	&::after {
-		@include svg-img('../../svg/arrow.svg');
-
+		background-image: url('../../svg/arrow.svg');
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: 16px;
 		bottom: 0;
 		content: '';
 		display: block;
-		height: $sort-icon-size;
+		height: variables.$sort-icon-size;
 		position: absolute;
 		right: 0;
 		top: 0;
-		width: $sort-icon-size;
+		width: variables.$sort-icon-size;
 
 		.table--sort-desc & {
 			transform: rotate(180deg);

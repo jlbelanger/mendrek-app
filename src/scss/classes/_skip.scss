@@ -1,6 +1,8 @@
+@use '../utilities/colors';
+
 #skip {
-	background-color: $primary;
-	color: $black;
+	background-color: colors.$primary;
+	color: colors.$black;
 	font-size: 18px;
 	font-weight: 500;
 	left: 0;

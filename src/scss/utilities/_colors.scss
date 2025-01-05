@@ -1,6 +1,8 @@
+@use 'sass:color';
+
 $primary: #10bde3;
-$primary-light: scale-color($primary, $lightness: 20%);
-$primary-dark: scale-color($primary, $lightness: -40%);
+$primary-light: color.scale($primary, $lightness: 20%);
+$primary-dark: color.scale($primary, $lightness: -40%);
 
 $secondary: #dc143c;
 
@@ -9,34 +11,34 @@ $off-black: #222;
 $gray: #666;
 $white: #fff;
 
-// Sidebar
+/* Sidebar. */
 
 $sidebar-background-color: $black;
 
-// Body
+/* Body. */
 
-$body-background-color: scale-color($sidebar-background-color, $lightness: 5%);
+$body-background-color: color.scale($sidebar-background-color, $lightness: 5%);
 $body-color: #ccc;
 
-// Button
+/* Button. */
 
 $button-background-color: transparent;
 $button-border-color: $button-background-color;
 $button-color: $body-color;
 
-$button-background-color--hover: scale-color($body-background-color, $lightness: 5%);
+$button-background-color--hover: color.scale($body-background-color, $lightness: 5%);
 $button-border-color--hover: $button-background-color--hover;
 $button-color--hover: $white;
 
-// Heading
+/* Heading. */
 
 $heading-color: #999;
 
-// Icon
+/* Icon. */
 
 $icon-color: #666;
 
-// Input
+/* Input. */
 
 $input-background-color: $white;
 $input-color: $black;
